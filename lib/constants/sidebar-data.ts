@@ -4,6 +4,7 @@ import {
   IconWallet,
   IconShieldCheck,
   IconSend,
+  IconHistory,
 } from "@tabler/icons-react"
 
 export const sidebarData = {
@@ -32,6 +33,11 @@ export const sidebarData = {
       title: "Payouts",
       url: "/dashboard/payouts",
       icon: IconSend,
+    },
+    {
+      title: "Payout History",
+      url: "/dashboard/payout-history",
+      icon: IconHistory,
     },
     {
       title: "Compliance",
