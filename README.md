@@ -1,5 +1,12 @@
 # ArrowPay
 
+![ArrowPay](https://arrowpay.my.id/opengraph-image)
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-arrowpay.my.id-ec4899?style=for-the-badge)](https://arrowpay.my.id)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge)
+
 **Pay Freelancers & Remote Teams, Fast as an Arrow.**
 
 ArrowPay lets you send USDC payments to anyone, anywhere — fast, low-cost, and fully transparent. Built for teams that work with freelancers and remote workers across borders, ArrowPay turns multi-chain stablecoin payouts into a single click.
