@@ -25,7 +25,7 @@ import {
   CheckCircle,
   Wallet,
   Globe,
-  Code,
+  UserPlus,
   ArrowRightLeft,
   Fuel,
 } from "lucide-react";
@@ -39,7 +39,7 @@ export function Hero() {
           {/* Main headline */}
           <div className="relative">
             <div className="flex items-center justify-center gap-4 mb-4">
-              <Code className="w-8 h-8 text-blue-500" />
+              <UserPlus className="w-8 h-8 text-blue-500" />
               <Zap className="w-8 h-8 text-amber-500" />
             </div>
             <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-500 arrow-shimmer leading-tight">
@@ -106,7 +106,7 @@ export function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start px-5">
             <div className="flex flex-col items-center text-center">
               <div className="bg-blue-100 dark:bg-blue-900/50 rounded-full p-4 mb-4">
-                <Code className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                <UserPlus className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Create Account</h3>
               <p className="text-sm text-muted-foreground">
