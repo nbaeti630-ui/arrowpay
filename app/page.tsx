@@ -33,6 +33,7 @@ export default function Home() {
             <div className="flex gap-5 items-center font-semibold">
               <ThemeSwitcher />
               <Link href={"/"} className="flex items-center gap-2">
+              <img src="/logo.svg" alt="ArrowPay" className="w-8 h-8" />
                 <span className="bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-500 arrow-shimmer bg-clip-text text-transparent font-bold text-xl">
                   ArrowPay
                 </span>
