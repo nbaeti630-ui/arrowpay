@@ -54,7 +54,7 @@ export default function PayoutsPage() {
   const payAll = async () => {
     const valid = recipients.filter((r) => r.address.trim() && parseFloat(r.amount) > 0)
     if (valid.length === 0) {
-      toast.error("Isi minimal 1 penerima dengan alamat & jumlah yang valid")
+      toast.error("Enter at least 1 recipient with a valid address & amount")
       return
     }
     setIsPaying(true)
@@ -72,14 +72,14 @@ export default function PayoutsPage() {
           }),
         })
         const data = await res.json().catch(() => ({}))
-        if (!res.ok) throw new Error(data.userMessage || data.error || "Pembayaran gagal")
+        if (!res.ok) throw new Error(data.userMessage || data.error || "Payment failed")
         setRecipients((prev) => prev.map((x) => (x.id === r.id ? { ...x, status: "success" } : x)))
-        toast.success(`Terkirim ke ${r.name || shorten(r.address)}`)
+        toast.success(`Sent to ${r.name || shorten(r.address)}`)
       } catch (e: any) {
         setRecipients((prev) =>
-          prev.map((x) => (x.id === r.id ? { ...x, status: "failed", message: e?.message || "Gagal" } : x))
+          prev.map((x) => (x.id === r.id ? { ...x, status: "failed", message: e?.message || "Failed" } : x))
         )
-        toast.error(`Gagal ke ${r.name || shorten(r.address)}`)
+        toast.error(`Failed to ${r.name || shorten(r.address)}`)
       }
     }
     setIsPaying(false)
@@ -88,14 +88,14 @@ export default function PayoutsPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-semibold">Payout Freelancer</h1>
+        <h1 className="text-2xl font-semibold">Freelancer Payouts</h1>
         <p className="text-sm text-muted-foreground">
-          Bayar banyak freelancer & remote worker sekaligus pakai USDC. Tambahkan penerima, lalu kirim dalam sekali klik.
+          Pay multiple freelancers & remote workers at once with USDC. Add recipients, then send them in one click.
         </p>
       </div>
 
       <div className="mb-4 flex items-center gap-3">
-        <label className="text-sm font-medium">Jaringan:</label>
+        <label className="text-sm font-medium">Network:</label>
         <select
           value={chain}
           onChange={(e) => setChain(e.target.value)}
@@ -114,30 +114,30 @@ export default function PayoutsPage() {
         {recipients.map((r, i) => (
           <div key={r.id} className="rounded-lg border border-border bg-card p-4">
             <div className="mb-2 flex items-center justify-between">
-              <span className="text-sm font-medium">Penerima #{i + 1}</span>
+              <span className="text-sm font-medium">Recipient #{i + 1}</span>
               <div className="flex items-center gap-2">
-                {r.status === "sending" && <span className="text-xs text-muted-foreground">Mengirim…</span>}
-                {r.status === "success" && <span className="text-xs font-medium text-green-600">✅ Terkirim</span>}
-                {r.status === "failed" && <span className="text-xs font-medium text-red-600">❌ Gagal</span>}
+                {r.status === "sending" && <span className="text-xs text-muted-foreground">Sending…</span>}
+                {r.status === "success" && <span className="text-xs font-medium text-green-600">✅ Sent</span>}
+                {r.status === "failed" && <span className="text-xs font-medium text-red-600">❌ Failed</span>}
                 <button
                   onClick={() => removeRow(r.id)}
                   disabled={isPaying || recipients.length === 1}
                   className="text-xs text-muted-foreground hover:text-red-600 disabled:opacity-40"
                 >
-                  Hapus
+                  Remove
                 </button>
               </div>
             </div>
             <div className="grid gap-2 sm:grid-cols-3">
               <input
-                placeholder="Nama (opsional)"
+                placeholder="Name (optional)"
                 value={r.name}
                 onChange={(e) => update(r.id, "name", e.target.value)}
                 disabled={isPaying}
                 className="rounded-md border border-input bg-background px-3 py-2 text-sm"
               />
               <input
-                placeholder="Alamat wallet (0x...)"
+                placeholder="Wallet address (0x...)"
                 value={r.address}
                 onChange={(e) => update(r.id, "address", e.target.value)}
                 disabled={isPaying}
@@ -162,18 +162,18 @@ export default function PayoutsPage() {
         disabled={isPaying}
         className="mt-3 text-sm font-medium text-primary hover:underline disabled:opacity-40"
       >
-        + Tambah penerima
+        + Add recipient
       </button>
 
       <div className="mt-6 flex items-center justify-between rounded-lg border border-border bg-muted/40 p-4">
         <div>
           <div className="text-sm text-muted-foreground">
-            {validCount} penerima valid · {successCount} terkirim
+            {validCount} valid recipients · {successCount} sent
           </div>
           <div className="text-lg font-semibold">Total: {total.toFixed(2)} USDC</div>
         </div>
         <Button onClick={payAll} disabled={isPaying || validCount === 0}>
-          {isPaying ? "Mengirim…" : `Bayar Semua (${validCount})`}
+          {isPaying ? "Sending…" : `Pay All (${validCount})`}
         </Button>
       </div>
     </div>
