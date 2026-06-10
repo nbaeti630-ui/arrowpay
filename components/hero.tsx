@@ -70,28 +70,28 @@ export function Hero() {
         {/* Features Section */}
         <section className="w-full space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center">
-            Powerful Features for Developers
+            Everything You Need to Pay Your Team
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FeatureCard
               icon={<Wallet className="w-8 h-8 text-blue-500" />}
-              title="Developer-Controlled Wallets"
-              description="Securely manage user assets with our custodial wallet infrastructure. Ideal for embedding wallets."
+              title="Secure USDC Wallets"
+              description="Keep your funds safe in built-in USDC wallets. No crypto experience needed to get started."
             />
             <FeatureCard
               icon={<Globe className="w-8 h-8 text-green-500" />}
-              title="Global Balance"
-              description="Unified USDC cross-chain balance. Give users instant access to liquidity across multiple chains."
+              title="Pay Anyone, Anywhere"
+              description="Send payments to freelancers and remote teams worldwide, across multiple blockchains in seconds."
             />
             <FeatureCard
               icon={<ArrowRightLeft className="w-8 h-8 text-amber-500" />}
-              title="Bridge Kit"
-              description="Move USDC between EVM and non-EVM chains with just a few lines of code. Hundreds of routes."
+              title="Multi-Chain Payouts"
+              description="Pay across different networks effortlessly. Recipients get USDC on the chain they prefer."
             />
              <FeatureCard
               icon={<Fuel className="w-8 h-8 text-purple-500" />}
-              title="Gas Station"
-              description="Sponsor gas fees for your users. Enable a seamless, gasless experience for your application."
+              title="Zero Gas Hassle"
+              description="We cover the network fees for you. Your team receives the full amount, with no hidden costs."
             />
           </div>
         </section>
@@ -108,9 +108,9 @@ export function Hero() {
               <div className="bg-blue-100 dark:bg-blue-900/50 rounded-full p-4 mb-4">
                 <Code className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Integrate SDK</h3>
+              <h3 className="text-lg font-semibold mb-2">Create Account</h3>
               <p className="text-sm text-muted-foreground">
-                Set up your ArrowPay account in minutes.
+                Sign up and set up ArrowPay in minutes.
               </p>
             </div>
 
@@ -118,9 +118,9 @@ export function Hero() {
               <div className="bg-green-100 dark:bg-green-900/50 rounded-full p-4 mb-4">
                 <Wallet className="w-8 h-8 text-green-600 dark:text-green-400" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Create Wallets</h3>
+              <h3 className="text-lg font-semibold mb-2">Add Recipients</h3>
               <p className="text-sm text-muted-foreground">
-                Generate wallets for your users instantly.
+                Add your freelancers and team by wallet address.
               </p>
             </div>
 
@@ -128,9 +128,9 @@ export function Hero() {
               <div className="bg-yellow-100 dark:bg-yellow-900/50 rounded-full p-4 mb-4">
                 <Zap className="w-8 h-8 text-amber-600 dark:text-amber-400" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Enable Features</h3>
+              <h3 className="text-lg font-semibold mb-2">Send Payout</h3>
               <p className="text-sm text-muted-foreground">
-                Turn on Gas Station, Gateway, and more.
+                Pay everyone at once with a single click.
               </p>
             </div>
 
@@ -138,9 +138,9 @@ export function Hero() {
               <div className="bg-purple-100 dark:bg-purple-900/50 rounded-full p-4 mb-4">
                 <CheckCircle className="w-8 h-8 text-purple-600 dark:text-purple-400" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Go Live</h3>
+              <h3 className="text-lg font-semibold mb-2">Track & Verify</h3>
               <p className="text-sm text-muted-foreground">
-                Launch your app with enterprise-grade infrastructure.
+                See every payment and its on-chain proof in Payout History.
               </p>
             </div>
           </div>
@@ -151,7 +151,7 @@ export function Hero() {
       <section className="w-full max-w-5xl py-16 space-y-8">
         <div className="text-center space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold">
-            Ready to Build the Future of Finance?
+            Ready to Pay Your Team the Easy Way?
           </h2>
           <p className="text-lg text-muted-foreground">
             Start paying your team with ArrowPay today.
@@ -162,7 +162,7 @@ export function Hero() {
             <Button size="lg">Get Started Now</Button>
           </Link>
            <Link href="https://developers.circle.com" target="_blank">
-            <Button variant="outline" size="lg">Read Documentation</Button>
+            <Button variant="outline" size="lg">Learn More</Button>
           </Link>
         </div>
       </section>
