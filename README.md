@@ -1,6 +1,5 @@
 # ArrowPay
 
-![ArrowPay](https://arrowpay.my.id/opengraph-image)
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-arrowpay.my.id-ec4899?style=for-the-badge)](https://arrowpay.my.id)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)

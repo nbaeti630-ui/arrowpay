@@ -18,7 +18,7 @@ export function Footer() {
           </nav>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-foreground/10 pt-4">
-          <span>© {new Date().getFullYear()} ArrowPay. Built with USDC on Arc.</span>
+          <span>© 2026 ArrowPay. Built with USDC on Arc.</span>
           <span>Testnet demo · not for production funds.</span>
         </div>
       </div>
