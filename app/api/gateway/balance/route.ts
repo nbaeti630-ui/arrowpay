@@ -90,8 +90,8 @@ export async function POST(req: NextRequest) {
         }
 
         // Fetch on-chain USDC balances sequentially (wallet balances not yet deposited)
-        const chainBalances = [];
-        for (const chain of supportedChains) {
+        const chainBalances: Array<{ chain: string; balance: number; address: string }> = [];
+        await Promise.all(supportedChains.map(async (chain) => {
           try {
             const balance = await getUsdcBalance(address as Address, chain);
             chainBalances.push({
@@ -107,7 +107,7 @@ export async function POST(req: NextRequest) {
               address,
             });
           }
-        }
+        }));
 
         // Calculate total from on-chain balances (wallet balance)
         const walletTotal = chainBalances.reduce((sum, cb) => sum + cb.balance, 0);

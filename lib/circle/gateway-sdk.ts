@@ -794,6 +794,13 @@ async function withRetry<T>(
   throw lastError || new Error("Max retries exceeded");
 }
 
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) => setTimeout(() => reject(new Error("Balance request timed out")), ms)),
+  ]);
+}
+
 export async function getUsdcBalance(
   address: Address,
   chain: SupportedChain
@@ -807,7 +814,7 @@ export async function getUsdcBalance(
   }
 
   // Fetch with retry logic
-  const balance = await withRetry(async () => {
+  const balance = await withTimeout(withRetry(async () => {
     const publicClient = createPublicClient({
       chain: getChainConfig(chain),
       transport: http(),
@@ -821,7 +828,7 @@ export async function getUsdcBalance(
     });
 
     return result as bigint;
-  });
+  }), 5000);
 
   // Cache the result
   balanceCache.set(cacheKey, { balance, timestamp: Date.now() });
