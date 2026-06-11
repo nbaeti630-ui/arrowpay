@@ -71,7 +71,7 @@ export function WalletDetailsCard({ wallet }: { wallet: WalletDetails }) {
 
   const getBlockchainColor = (blockchain: string) => {
     const colors: Record<string, string> = {
-      "ETH-SEPOLIA": "bg-purple-100 text-purple-800",
+      "ETH-SEPOLIA": "bg-pink-100 text-pink-800",
       "BASE-SEPOLIA": "bg-blue-100 text-blue-800", 
       "AVAX-FUJI": "bg-red-100 text-red-800",
       "ARC-TESTNET": "bg-yellow-100 text-yellow-800",

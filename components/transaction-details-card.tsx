@@ -94,7 +94,7 @@ export function TransactionDetailsCard({ transaction }: { transaction: Transacti
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Amount */}
-        <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 rounded-lg border dark:border-border">
+        <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-pink-50 dark:from-blue-950/20 dark:to-pink-950/20 rounded-lg border dark:border-border">
           <div className="text-3xl font-bold text-foreground">
             {formatAmount(transaction.amount)}
           </div>

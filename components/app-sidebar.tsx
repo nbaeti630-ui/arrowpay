@@ -46,7 +46,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="/dashboard">
                 <IconInnerShadowTop className="size-5!" />
-                <span className="bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-500 arrow-shimmer bg-clip-text text-transparent font-bold text-xl">
+                <span className="bg-gradient-to-r from-pink-400 via-pink-300 to-rose-400 arrow-shimmer bg-clip-text text-transparent font-bold text-xl">
                   ArrowPay
                 </span>
               </a>

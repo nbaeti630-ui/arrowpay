@@ -7,7 +7,7 @@ export function Footer() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <img src="/logo.svg" alt="ArrowPay" className="w-6 h-6" />
-            <span className="bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent font-bold">
+            <span className="bg-gradient-to-r from-pink-400 via-pink-300 to-rose-400 bg-clip-text text-transparent font-bold">
               ArrowPay
             </span>
           </div>

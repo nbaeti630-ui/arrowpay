@@ -42,7 +42,7 @@ export function Hero() {
               <UserPlus className="w-8 h-8 text-blue-500" />
               <Zap className="w-8 h-8 text-amber-500" />
             </div>
-            <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-500 arrow-shimmer leading-tight">
+            <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-pink-300 to-rose-400 arrow-shimmer leading-tight">
               Pay Freelancers & Remote Teams, Fast as an Arrow
             </p>
             <p className="mt-4 text-xl md:text-2xl text-center text-muted-foreground">
@@ -89,7 +89,7 @@ export function Hero() {
               description="Pay across different networks effortlessly. Recipients get USDC on the chain they prefer."
             />
              <FeatureCard
-              icon={<Fuel className="w-8 h-8 text-purple-500" />}
+              icon={<Fuel className="w-8 h-8 text-pink-500" />}
               title="Zero Gas Hassle"
               description="We cover the network fees for you. Your team receives the full amount, with no hidden costs."
             />
@@ -135,8 +135,8 @@ export function Hero() {
             </div>
 
             <div className="flex flex-col items-center text-center">
-              <div className="bg-purple-100 dark:bg-purple-900/50 rounded-full p-4 mb-4">
-                <CheckCircle className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+              <div className="bg-pink-100 dark:bg-pink-900/50 rounded-full p-4 mb-4">
+                <CheckCircle className="w-8 h-8 text-pink-600 dark:text-pink-400" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Track & Verify</h3>
               <p className="text-sm text-muted-foreground">

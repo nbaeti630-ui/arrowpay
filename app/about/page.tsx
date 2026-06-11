@@ -42,7 +42,7 @@ export default function AboutPage() {
           <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
             <Link href="/" className="flex items-center gap-2">
               <img src="/logo.svg" alt="ArrowPay" className="w-8 h-8" />
-              <span className="bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-500 arrow-shimmer bg-clip-text text-transparent font-bold text-xl">
+              <span className="bg-gradient-to-r from-pink-400 via-pink-300 to-rose-400 arrow-shimmer bg-clip-text text-transparent font-bold text-xl">
                 ArrowPay
               </span>
             </Link>
@@ -56,7 +56,7 @@ export default function AboutPage() {
           <div className="flex flex-col gap-3">
             <h1 className="text-4xl font-bold">
               About{" "}
-              <span className="bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-pink-400 via-pink-300 to-rose-400 bg-clip-text text-transparent">
                 ArrowPay
               </span>
             </h1>
@@ -97,7 +97,7 @@ export default function AboutPage() {
           <div>
             <Link
               href="/dashboard"
-              className="inline-flex items-center rounded-lg bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-500 px-5 py-3 font-semibold text-white hover:opacity-90"
+              className="inline-flex items-center rounded-lg bg-gradient-to-r from-pink-400 via-pink-300 to-rose-400 px-5 py-3 font-semibold text-white hover:opacity-90"
             >
               Try ArrowPay →
             </Link>
