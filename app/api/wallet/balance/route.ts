@@ -22,6 +22,13 @@ import { circleDeveloperSdk } from "@/lib/circle/developer-controlled-wallets-cl
 import { getUsdcBalance, type SupportedChain, USDC_ADDRESSES } from "@/lib/circle/gateway-sdk";
 import type { Address } from "viem";
 
+function withTimeout<T>(promise: Promise<T>, ms = 8000): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) => setTimeout(() => reject(new Error("Balance request timed out")), ms)),
+  ]);
+}
+
 export async function POST(req: NextRequest) {
   try {
     const supabase = await createClient();
@@ -80,10 +87,7 @@ export async function POST(req: NextRequest) {
         const chainSuffix = chainName ? ` (${chainName})` : "";
 
         try {
-          const response = await circleDeveloperSdk.getWalletTokenBalance({
-            id,
-            includeAll: true
-          });
+          const response = await withTimeout(circleDeveloperSdk.getWalletTokenBalance({ id, includeAll: true }), 8000);
 
           // The SDK returns an array of token balances for this specific wallet
           const tokenBalances = response.data?.tokenBalances || [];

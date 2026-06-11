@@ -109,7 +109,7 @@ export default function Page() {
 
       if (res.ok) {
         const data = await res.json()
-        setBalances((prev) => ({ ...prev, ...data }))
+        setBalances((prev) => { const merged = { ...prev, ...data }; try { sessionStorage.setItem("ap_balances", JSON.stringify(merged)); } catch { /* ignore */ } return merged; })
       }
     } catch (error) {
       console.error("Error fetching balances:", error)
@@ -135,6 +135,7 @@ export default function Page() {
         setLoading(false)
 
         // Fetch balances after wallets are loaded
+        try { const cached = JSON.parse(sessionStorage.getItem("ap_balances") || "{}"); if (cached && Object.keys(cached).length) setBalances((prev) => ({ ...cached, ...prev })); } catch { /* ignore */ } /* cached balances */
         fetchBalances(initialWallets)
       } catch (error) {
         console.error("Error loading wallets:", error)
