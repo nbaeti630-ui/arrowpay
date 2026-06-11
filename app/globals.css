@@ -296,3 +296,10 @@ button:hover { transform: translateY(-1px); filter: brightness(1.03); }
   [data-slot="card"], [data-slot="button"] { animation: none !important; transition: none !important; }
   [data-slot="card"]:hover, [data-slot="button"]:hover { transform: none; }
 }
+
+/* ===== ArrowPay: neon glow on card titles ===== */
+[data-slot="card-title"] {
+  color: color-mix(in oklch, var(--ap-accent, var(--primary)) 58%, currentColor);
+  text-shadow: 0 0 5px color-mix(in oklch, var(--ap-accent, var(--primary)) 50%, transparent),
+               0 0 12px color-mix(in oklch, var(--ap-accent, var(--primary)) 32%, transparent);
+}
