@@ -17,6 +17,11 @@ ArrowPay lets you send USDC payments to anyone, anywhere — fast, low-cost, and
 - **Multi-chain Wallets** — Create and manage USDC wallets across Arc Testnet, Base Sepolia, Ethereum Sepolia, and Avalanche Fuji.
 - **Programmable USDC** — Send stablecoin payments with predictable, low fees.
 - **Activity & Compliance** — Track every transaction in a clear activity log.
+## Screenshots
+
+<img width="1203" height="2273" alt="1000025633" src="https://github.com/user-attachments/assets/09607142-dc27-4a61-b12f-86a798ee883a" />
+<img width="1210" height="2303" alt="1000025632" src="https://github.com/user-attachments/assets/b6453538-b514-40dc-9269-efb2dd7e79c0" />
+<img width="1220" height="2274" alt="1000025631" src="https://github.com/user-attachments/assets/cde43e84-a84a-4bb8-b4af-f914d347a241" />
 
 ## Tech Stack
 
