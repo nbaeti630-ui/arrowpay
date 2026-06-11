@@ -27,6 +27,10 @@ function shorten(a: string) {
   return a.length < 12 ? a : `${a.slice(0, 6)}...${a.slice(-4)}`
 }
 
+function isValidAddress(a: string) {
+  return /^0x[a-fA-F0-9]{40}$/.test(a.trim())
+}
+
 export default function PayoutsPage() {
   const [recipients, setRecipients] = useState<Recipient[]>([
     { id: "r1", name: "", address: "", amount: "", status: "idle" },
@@ -48,13 +52,13 @@ export default function PayoutsPage() {
     setRecipients((prev) => prev.map((r) => (r.id === id ? { ...r, [field]: value } : r)))
 
   const total = recipients.reduce((s, r) => s + (parseFloat(r.amount) || 0), 0)
-  const validCount = recipients.filter((r) => r.address.trim() && parseFloat(r.amount) > 0).length
+  const validCount = recipients.filter((r) => isValidAddress(r.address) && parseFloat(r.amount) > 0).length
   const successCount = recipients.filter((r) => r.status === "success").length
 
   const payAll = async () => {
-    const valid = recipients.filter((r) => r.address.trim() && parseFloat(r.amount) > 0)
+    const valid = recipients.filter((r) => isValidAddress(r.address) && parseFloat(r.amount) > 0)
     if (valid.length === 0) {
-      toast.error("Enter at least 1 recipient with a valid address & amount")
+      toast.error("Add at least 1 recipient with a valid 0x wallet address and amount")
       return
     }
     setIsPaying(true)
