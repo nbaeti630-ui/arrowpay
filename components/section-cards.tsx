@@ -18,7 +18,6 @@
 
 "use client"
 
-import { Zap as ApZap, Layers as ApLayers, Triangle as ApTriangle, Gem as ApGem } from "lucide-react"
 import {
   Card,
   CardDescription,
@@ -30,10 +29,10 @@ import { useBalanceContext } from "@/lib/contexts/balance-context"
 
 // Configuration for the cards we want to display
 const CHAIN_CONFIG = [
-  { key: "arcTestnet", label: "Arc Testnet Balance", Icon: ApZap },
-  { key: "baseSepolia", label: "Base Sepolia Balance", Icon: ApLayers },
-  { key: "avalancheFuji", label: "Avalanche Fuji Balance", Icon: ApTriangle },
-  { key: "ethSepolia", label: "Ethereum Sepolia Balance", Icon: ApGem },
+  { key: "arcTestnet", label: "Arc Testnet Balance", logo: "/chains/arc.svg" },
+  { key: "baseSepolia", label: "Base Sepolia Balance", logo: "/chains/base.svg" },
+  { key: "avalancheFuji", label: "Avalanche Fuji Balance", logo: "/chains/avalanche.svg" },
+  { key: "ethSepolia", label: "Ethereum Sepolia Balance", logo: "/chains/ethereum.svg" },
 ] as const
 
 export function SectionCards() {
@@ -46,7 +45,8 @@ export function SectionCards() {
           <CardHeader>
             <CardDescription className="flex items-center gap-2">
                 <span data-chip="1" className="grid size-7 shrink-0 place-items-center rounded-lg">
-                  <chain.Icon className="size-4" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={chain.logo} alt="" className="size-5 object-contain" />
                 </span>
                 {chain.label}
               </CardDescription>
