@@ -19,6 +19,7 @@
 import { EnvVarWarning } from "@/components/env-var-warning";
 import { AuthButton } from "@/components/auth-button";
 import { Hero } from "@/components/hero";
+import { Footer } from "@/components/footer";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { hasEnvVars } from "@/lib/utils";
 import Link from "next/link";
@@ -49,6 +50,7 @@ export default function Home() {
           </div>
         </nav>
         <Hero />
+          <Footer />
       </div>
     </main>
   );
