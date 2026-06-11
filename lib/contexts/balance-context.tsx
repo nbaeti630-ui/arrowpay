@@ -87,19 +87,14 @@ export function BalanceProvider({ children }: { children: ReactNode }) {
   const walletsRef = useRef<Wallet[]>([])
 
   // Gateway balance state
-  const [chainBalances, setChainBalances] = useState<ChainBalances>({
-    ethSepolia: 0,
-    baseSepolia: 0,
-    avalancheFuji: 0,
-    arcTestnet: 0,
-  })
-  const [gatewayTotal, setGatewayTotal] = useState(0)
-  const [isLoadingGateway, setIsLoadingGateway] = useState(true)
+  const [chainBalances, setChainBalances] = useState<ChainBalances>(() => { const d = { ethSepolia: 0, baseSepolia: 0, avalancheFuji: 0, arcTestnet: 0 }; if (typeof window === "undefined") return d; try { const r = window.sessionStorage.getItem("ap_chain_balances"); return r ? JSON.parse(r) : d; } catch { return d; } })
+  const [gatewayTotal, setGatewayTotal] = useState<number>(() => { if (typeof window === "undefined") return 0; try { return Number(window.sessionStorage.getItem("ap_gateway_total")) || 0; } catch { return 0; } })
+  const [isLoadingGateway, setIsLoadingGateway] = useState(() => { if (typeof window === "undefined") return true; try { return !window.sessionStorage.getItem("ap_gateway_total"); } catch { return true; } })
 
   // Wallet balance state
-  const [walletBalances, setWalletBalances] = useState<Record<string, string>>({})
-  const [walletTotal, setWalletTotal] = useState(0)
-  const [isLoadingWallet, setIsLoadingWallet] = useState(true)
+  const [walletBalances, setWalletBalances] = useState<Record<string, string>>(() => { if (typeof window === "undefined") return {}; try { return JSON.parse(window.sessionStorage.getItem("ap_wallet_balances") || "{}"); } catch { return {}; } })
+  const [walletTotal, setWalletTotal] = useState<number>(() => { if (typeof window === "undefined") return 0; try { return Number(window.sessionStorage.getItem("ap_wallet_total")) || 0; } catch { return 0; } })
+  const [isLoadingWallet, setIsLoadingWallet] = useState(() => { if (typeof window === "undefined") return true; try { return !window.sessionStorage.getItem("ap_wallet_balances"); } catch { return true; } })
 
   // Debounce and cooldown refs
   const gatewayDebounceRef = useRef<NodeJS.Timeout | null>(null)
@@ -118,6 +113,10 @@ export function BalanceProvider({ children }: { children: ReactNode }) {
   }, [wallets])
 
   // Fetch gateway balance
+  useEffect(() => { if (!isLoadingWallet && typeof window !== "undefined") { try { window.sessionStorage.setItem("ap_wallet_balances", JSON.stringify(walletBalances)); window.sessionStorage.setItem("ap_wallet_total", String(walletTotal)); } catch { /* ignore */ } } }, [walletBalances, walletTotal, isLoadingWallet]);
+
+  useEffect(() => { if (!isLoadingGateway && typeof window !== "undefined") { try { window.sessionStorage.setItem("ap_gateway_total", String(gatewayTotal)); window.sessionStorage.setItem("ap_chain_balances", JSON.stringify(chainBalances)); } catch { /* ignore */ } } }, [gatewayTotal, chainBalances, isLoadingGateway]);
+
   const fetchGatewayBalance = useCallback(async (currentWallets: Wallet[]) => {
     if (!currentWallets || currentWallets.length === 0) {
       setChainBalances({ ethSepolia: 0, baseSepolia: 0, avalancheFuji: 0, arcTestnet: 0 })
