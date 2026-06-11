@@ -19,7 +19,6 @@
 "use client"
 
 import * as React from "react"
-import { IconInnerShadowTop } from "@tabler/icons-react"
 
 import { NavMain } from "@/components/nav-main"
 import { NavUser } from "@/components/nav-user"
@@ -45,7 +44,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:p-1.5!"
             >
               <a href="/dashboard">
-                <IconInnerShadowTop className="size-5!" />
+                <img src="/arrowpay-logo.svg" alt="ArrowPay" className="size-6" />
                 <span className="bg-gradient-to-r from-pink-400 via-pink-300 to-rose-400 arrow-shimmer bg-clip-text text-transparent font-bold text-xl">
                   ArrowPay
                 </span>
