@@ -303,3 +303,13 @@ button:hover { transform: translateY(-1px); filter: brightness(1.03); }
   text-shadow: 0 0 5px color-mix(in oklch, var(--ap-accent, var(--primary)) 50%, transparent),
                0 0 12px color-mix(in oklch, var(--ap-accent, var(--primary)) 32%, transparent);
 }
+
+/* ===== ArrowPay: per-chain card accents (warna per chain, tetap menyatu) ===== */
+[data-slot="card"][data-chain="arcTestnet"]    { --ap-accent: oklch(0.63 0.21 350); }
+[data-slot="card"][data-chain="baseSepolia"]   { --ap-accent: oklch(0.60 0.16 250); }
+[data-slot="card"][data-chain="avalancheFuji"] { --ap-accent: oklch(0.62 0.21 25); }
+[data-slot="card"][data-chain="ethSepolia"]    { --ap-accent: oklch(0.58 0.19 290); }
+
+/* ===== ArrowPay: chain icon chip ===== */
+[data-slot="card"] [data-chip] { background-color: color-mix(in oklch, var(--ap-accent, var(--primary)) 16%, transparent); }
+[data-slot="card"] [data-chip] svg { color: var(--ap-accent, var(--primary)); }

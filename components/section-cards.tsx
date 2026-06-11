@@ -18,6 +18,7 @@
 
 "use client"
 
+import { Zap as ApZap, Layers as ApLayers, Triangle as ApTriangle, Gem as ApGem } from "lucide-react"
 import {
   Card,
   CardDescription,
@@ -29,10 +30,10 @@ import { useBalanceContext } from "@/lib/contexts/balance-context"
 
 // Configuration for the cards we want to display
 const CHAIN_CONFIG = [
-  { key: "arcTestnet", label: "Arc Testnet Balance" },
-  { key: "baseSepolia", label: "Base Sepolia Balance" },
-  { key: "avalancheFuji", label: "Avalanche Fuji Balance" },
-  { key: "ethSepolia", label: "Ethereum Sepolia Balance" },
+  { key: "arcTestnet", label: "Arc Testnet Balance", Icon: ApZap },
+  { key: "baseSepolia", label: "Base Sepolia Balance", Icon: ApLayers },
+  { key: "avalancheFuji", label: "Avalanche Fuji Balance", Icon: ApTriangle },
+  { key: "ethSepolia", label: "Ethereum Sepolia Balance", Icon: ApGem },
 ] as const
 
 export function SectionCards() {
@@ -41,9 +42,14 @@ export function SectionCards() {
   return (
     <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
       {CHAIN_CONFIG.map((chain) => (
-        <Card key={chain.key} className="@container/card">
+        <Card key={chain.key} data-chain={chain.key} className="@container/card">
           <CardHeader>
-            <CardDescription>{chain.label}</CardDescription>
+            <CardDescription className="flex items-center gap-2">
+                <span data-chip="1" className="grid size-7 shrink-0 place-items-center rounded-lg">
+                  <chain.Icon className="size-4" />
+                </span>
+                {chain.label}
+              </CardDescription>
             <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
               {isLoadingGateway ? (
                 <Skeleton className="h-8 w-24" />
